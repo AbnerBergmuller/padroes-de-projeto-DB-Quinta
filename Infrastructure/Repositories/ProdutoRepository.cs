@@ -15,22 +15,22 @@ public class ProdutoRepository : IProdutoRepository
         _context = context;
     }
 
-    public Task<IEnumerable<Produto>> GetAllAsync(CancellationToken ct = default)
+    public async Task<IEnumerable<Produto>> GetAllAsync(CancellationToken ct = default)
     {
         // TODO: retornar lista com AsNoTracking.
-        throw new NotImplementedException();
+        return await _context.Produtos.ToListAsync();
     }
 
-    public Task<Produto?> GetByIdAsync(int id, CancellationToken ct = default)
+    public async Task<Produto?> GetByIdAsync(int id, CancellationToken ct = default)
     {
         // TODO: usar FindAsync.
-        throw new NotImplementedException();
+        return await _context.Produtos.FindAsync(id);
     }
 
-    public Task AddAsync(Produto produto, CancellationToken ct = default)
+    public async Task AddAsync(Produto produto, CancellationToken ct = default)
     {
         // TODO: AddAsync(produto, ct)
-        throw new NotImplementedException();
+        return await _context
     }
 
     public Task RemoveAsync(Produto produto, CancellationToken ct = default)
